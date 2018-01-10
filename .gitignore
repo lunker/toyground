@@ -1,5 +1,11 @@
 
 # gradle 
-build/
 .idea/
+.gradle
+
+# node
+node_modules/
+
+#babel
+.babelrc
 

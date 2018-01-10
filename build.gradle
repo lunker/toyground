@@ -1,14 +1,16 @@
 group 'org.lunker'
 version '1.0-SNAPSHOT'
 
+apply plugin: 'idea'
 apply plugin: 'java'
 apply plugin: 'war'
+
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 ext {
-    springBootVersion = '1.4.2.RELEASE'
+    springVersion = '2.0.0.M7'
     slf4jVersion = '1.7.21'
     log4j2Version = '2.5'
     commonsLogging = '1.2'
@@ -19,6 +21,8 @@ repositories {
     maven {
         url 'https://repo.spring.io/libs-milestone'
     }
+    jcenter()
+
 }
 
 
@@ -26,25 +30,48 @@ dependencies {
     // test
     testCompile group: 'junit', name: 'junit', version: '4.11'
 //    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.0.0.M7'
-    testCompile("org.springframework.boot:spring-boot-starter-test:2.0.0.M7"){
+    testCompile("org.springframework.boot:spring-boot-starter-test:${springVersion}"){
         exclude module: 'spring-boot-starter-logging'
     }
 
-    // run-time
-    compile("org.springframework.boot:spring-boot-starter-web:2.0.0.M7"){
+    // Spring
+    compile("org.springframework.boot:spring-boot-starter-web:${springVersion}"){
         exclude module: 'spring-boot-starter-logging'
     }
-    compile("org.springframework.boot:spring-boot-starter-actuator"){
+    compile("org.springframework.boot:spring-boot-starter-actuator:${springVersion}"){
         exclude module: 'spring-boot-starter-logging'
     }
 
     // SLF4J-Log4j2
-//    compile("commons-logging:commons-logging:${commonsLogging}")
     compile("org.slf4j:slf4j-api:${slf4jVersion}")
-//    compile("org.slf4j:slf4j-simple:${slf4jVersion}")
-
     compile("org.apache.logging.log4j:log4j-api:${log4j2Version}")
     compile("org.apache.logging.log4j:log4j-core:${log4j2Version}")
     compile("org.apache.logging.log4j:log4j-slf4j-impl:${log4j2Version}")
 
+    // Spring hot deploy
+    compile("org.springframework.boot:spring-boot-gradle-plugin:${springVersion}")
+    compile("org.springframework:springloaded:${springVersion}")
+
+    // Spring Data JPA
+    compile("org.springframework.boot:spring-boot-starter-data-jpa:${springVersion}")
+    compile("com.h2database:h2:1.4.196")
+
+
+}
+
+task webpack(type: Exec) {
+//    commandLine "$projectDir/node_modules/.bin/webpack", "$projectDir/src/main/static/app.static", "$buildDir/static/bundle.static"
+    commandLine "$projectDir/node_modules/.bin/webpack", "$projectDir/src/main/resources/static/app.js", "$projectDir/src/main/resources/static/bundle.js"
+}
+
+task webpack_dev(type: Exec){
+    commandLine "$projectDir/node_modules/.bin/webpack-dev-server --inline --hot"
+}
+
+
+idea {
+    module {
+        inheritOutputDirs = false
+        outputDir = file("$buildDir/classes/main/")
+    }
 }

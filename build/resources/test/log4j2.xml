@@ -13,9 +13,5 @@
         <Root level="debug">
             <AppenderRef ref="Console"/>
         </Root>
-
-        <Logger name="org.lunker.toyground" level="DEBUG">
-            <Appender-ref ref="Console" level="DEBUG" />
-        </Logger>
     </Loggers>
 </Configuration>
