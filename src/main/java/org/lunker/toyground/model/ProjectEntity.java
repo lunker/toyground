@@ -19,7 +19,7 @@ public class ProjectEntity {
     private String url;
 
 
-    protected ProjectEntity() {
+    public ProjectEntity() {
     }
 
     public ProjectEntity(String title, String url) {
@@ -49,5 +49,15 @@ public class ProjectEntity {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    @Override
+    public String toString() {
+
+        StringBuilder stringBuilder=new StringBuilder();
+        stringBuilder.append("title: " + title);
+        stringBuilder.append(", ");
+        stringBuilder.append("url: " + url);
+        return stringBuilder.toString();
     }
 }

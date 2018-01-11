@@ -24,8 +24,7 @@ import java.util.List;
 
 @Controller
 @EnableAutoConfiguration
-@RequestAPI
-@RequestMapping("/project")
+@RequestMapping("/api/project")
 public class ProjectController {
 
     private Logger logger= LoggerFactory.getLogger(ProjectController.class);
@@ -36,22 +35,21 @@ public class ProjectController {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity create(@RequestBody ProjectEntity projectEntity){
 //        ServerResponse response=null;
+
+        ProjectEntity savedEntity=projectRepository.save(projectEntity);
+
+        logger.info("[POST][/api/project]");
+        logger.info(projectEntity.toString());
+
+        logger.info("Saved result : " + savedEntity.toString());
+
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
-    /*
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<ProjectEntity>> getProjectList(){
-//        ServerResponse response=null;
+//        ServerResponse response=null;s
+
         return new ResponseEntity<List<ProjectEntity>>(HttpStatus.OK);
-    }
-    */
-
-
-    @RequestMapping(method = RequestMethod.GET)
-    @ResponseBody
-    public String getProjectList(){
-//        ServerResponse response=null;
-        return "d";
     }
 }
