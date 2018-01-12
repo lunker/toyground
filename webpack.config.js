@@ -1,17 +1,16 @@
 const webpack=require('webpack');
 
 module.exports = {
-
-		entry:'src/main/resources/static/app.js', // -- webpack을 수행할 bundle 대상 js file 들 
-		output : {
-			path: __dirname + 'src/main/resources/static', 
-			filename : 'bundle.js'
-		}, // entry에 지정된 파일들을 bundling한 결과물 처리 
+    entry: __dirname + '/src/main/resources/static/app.js', // -- webpack을 수행할 bundle 대상 js file 들
+    output : {
+        path: __dirname + '/src/main/resources/static',
+        filename : 'bundle2.js'
+    }, // entry에 지정된 파일들을 bundling한 결과물 처리
 
     devServer: {
         inline: true,
-        port: 10909,
-        // contentBase: __dirname + '/public/'
+        port: 10000,
+        contentBase: __dirname + '/src/main/resources/templates'
     },
 
     plugins: [

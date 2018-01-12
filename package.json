@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -32,13 +32,17 @@
     "enzyme-to-json": "^3.3.0",
     "jest": "^22.0.5",
     "react-addons-test-utils": "^15.6.2",
+    "react-jest": "^0.2.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.10.0"
   },
-	"jest": {
-		"setupFiles": ["./test/jestsetup.js"],
-		"snapshotSerializers": [
-			"<rootDir>/node_modules/enzyme-to-json/serializer"
-		]
-	}
+  "jest": {
+		"verbose": true,
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css|scss)$": "identity-obj-proxy"
+    }
+  }
 }

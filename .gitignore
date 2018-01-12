@@ -2,6 +2,7 @@
 # gradle 
 .idea/
 .gradle
+build/
 
 # node
 node_modules/

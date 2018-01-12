@@ -22,9 +22,7 @@ repositories {
         url 'https://repo.spring.io/libs-milestone'
     }
     jcenter()
-
 }
-
 
 dependencies {
     // test
@@ -60,14 +58,13 @@ dependencies {
 }
 
 task webpack(type: Exec) {
-//    commandLine "$projectDir/node_modules/.bin/webpack", "$projectDir/src/main/static/app.static", "$buildDir/static/bundle.static"
-    commandLine "$projectDir/node_modules/.bin/webpack", "$projectDir/src/main/resources/static/app.js", "$projectDir/src/main/resources/static/bundle.js"
+    commandLine "$projectDir/node_modules/.bin/webpack"
 }
+
 
 task webpack_dev(type: Exec){
-    commandLine "$projectDir/node_modules/.bin/webpack-dev-server --inline --hot"
+    commandLine "$projectDir/node_modules/.bin/webpack-dev-server"
 }
-
 
 idea {
     module {

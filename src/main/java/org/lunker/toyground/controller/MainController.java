@@ -17,7 +17,7 @@ public class MainController {
 
     @RequestMapping("/")
     String hello() {
-        logger.debug("url :: /" );
+        logger.info("url :: /" );
         return "index.html";
     }
 }
