@@ -1,7 +1,9 @@
-
-
 const React = require('react');
 const ReactDOM = require('react-dom');
+const Project = require('./component/project');
+const Bootstrap = require('react-bootstrap');
+const Button = require('react-bootstrap').Button;
+const ButtonToolBar = require('react-bootstrap').ButtonToolBar;
 
 class ShoppingList extends React.Component {
     render() {
@@ -12,6 +14,23 @@ class ShoppingList extends React.Component {
                     <li>Instagram222222</li>
                     <li>WhatsApp222</li>
                 </ul>
+                <Project/>
+            </div>
+        );
+    }
+}
+
+class Buttons extends React.Component {
+
+    constructor(props) {
+        super(props);
+        // this.state = {employees: []};
+    }
+
+    render() {
+        return (
+            <div>
+                <Button bsStyle="primary" bsSize="large">Default</Button>
             </div>
         );
     }
@@ -33,7 +52,13 @@ class App extends React.Component {
     */
 
     render() {
-        return (<ShoppingList/>)
+        return (
+            <div>
+                {/*<ShoppingList/>*/}
+                {/*<Buttons/>*/}
+                hi!
+            </div>
+        )
     }
 }
 
@@ -41,4 +66,3 @@ ReactDOM.render(
     <App />,
     document.getElementById('app')
 )
-

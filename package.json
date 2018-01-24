@@ -19,6 +19,7 @@
   "dependencies": {
     "babel": "^6.23.0",
     "react": "^16.2.0",
+    "react-bootstrap": "^0.32.0",
     "react-dom": "^16.2.0"
   },
   "devDependencies": {
@@ -37,7 +38,7 @@
     "webpack-dev-server": "^2.10.0"
   },
   "jest": {
-		"verbose": true,
+    "verbose": true,
     "snapshotSerializers": [
       "<rootDir>/node_modules/enzyme-to-json/serializer"
     ],

@@ -1,21 +1,19 @@
 package org.lunker.toyground.controller;
 
-import org.lunker.toyground.annotation.RequestAPI;
-import org.lunker.toyground.core.ServerResponse;
+import io.swagger.annotations.ApiOperation;
 import org.lunker.toyground.model.ProjectEntity;
 import org.lunker.toyground.repository.ProjectRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -32,10 +30,9 @@ public class ProjectController {
     @Autowired
     private ProjectRepository projectRepository;
 
+    @ApiOperation(value="Project 등록")
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity create(@RequestBody ProjectEntity projectEntity){
-//        ServerResponse response=null;
-
+    public ResponseEntity create(@RequestBody ProjectEntity projectEntity, HttpServletRequest httpServletRequest){
         ProjectEntity savedEntity=projectRepository.save(projectEntity);
 
         logger.info("[POST][/api/project]");
@@ -43,13 +40,15 @@ public class ProjectController {
 
         logger.info("Saved result : " + savedEntity.toString());
 
-        return new ResponseEntity<Void>(HttpStatus.OK);
+//        ResponseEntity<String> test=new ResponseEntity<String>("body!", HttpStatus.OK);
+//        return test;
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<ProjectEntity>> getProjectList(){
-//        ServerResponse response=null;s
+//        ServerResponse response=null;
 
-        return new ResponseEntity<List<ProjectEntity>>(HttpStatus.OK);
+        return new ResponseEntity(HttpStatus.OK);
     }
 }
