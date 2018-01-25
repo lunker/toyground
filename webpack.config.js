@@ -2,8 +2,8 @@ const webpack=require('webpack');
 
 module.exports = {
     entry: [
-        __dirname + '/src/main/resources/static/app.js',
-        __dirname + '/src/main/resources/static/layout/header.js',
+        __dirname + '/src/main/resources/static/App.js',
+        __dirname + '/src/main/resources/static/layout/Header.js',
         __dirname + '/src/main/resources/static/layout/body.js',
         __dirname + '/src/main/resources/static/layout/footer.js'
 
@@ -18,7 +18,8 @@ module.exports = {
     devServer: {
         inline: true,
         port: 10000,
-        contentBase: __dirname + '/src/main/resources/templates'
+        contentBase: __dirname + '/src/main/resources/templates',
+        historyApiFallback: true
     },
 
     plugins: [

@@ -17,10 +17,14 @@
   },
   "homepage": "https://github.com/lunker/toyground#readme",
   "dependencies": {
+    "axios": "^0.17.1",
     "babel": "^6.23.0",
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-react": "^0.77.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

@@ -4775,8 +4775,8 @@ if (process.env.NODE_ENV !== 'production') {
  * @param {object} typeSpecs Map of name to a ReactPropType
  * @param {object} values Runtime values that need to be type-checked
  * @param {string} location e.g. "prop", "context", "child context"
- * @param {string} componentName Name of the component for error messages.
- * @param {?Function} getStack Returns the component stack.
+ * @param {string} componentName Name of the components for error messages.
+ * @param {?Function} getStack Returns the components stack.
  * @private
  */
 function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
@@ -5117,7 +5117,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
   function createArrayOfTypeChecker(typeChecker) {
     function validate(props, propName, componentName, location, propFullName) {
       if (typeof typeChecker !== 'function') {
-        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside arrayOf.');
+        return new PropTypeError('Property `' + propFullName + '` of components `' + componentName + '` has invalid PropType notation inside arrayOf.');
       }
       var propValue = props[propName];
       if (!Array.isArray(propValue)) {
@@ -5182,7 +5182,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
   function createObjectOfTypeChecker(typeChecker) {
     function validate(props, propName, componentName, location, propFullName) {
       if (typeof typeChecker !== 'function') {
-        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside objectOf.');
+        return new PropTypeError('Property `' + propFullName + '` of components `' + componentName + '` has invalid PropType notation inside objectOf.');
       }
       var propValue = props[propName];
       var propType = getPropType(propValue);
@@ -6423,7 +6423,7 @@ var Carousel = function (_React$Component) {
   Carousel.prototype.select = function select(index, e, direction) {
     clearTimeout(this.timeout);
 
-    // TODO: Is this necessary? Seems like the only risk is if the component
+    // TODO: Is this necessary? Seems like the only risk is if the components
     // unmounts while handleItemAnimateOutEnd fires.
     if (this.isUnmounted) {
       return;
@@ -7522,22 +7522,22 @@ var collapseStyles = (_collapseStyles = {}, _collapseStyles[__WEBPACK_IMPORTED_M
 
 var propTypes = {
   /**
-   * Show the component; triggers the expand or collapse animation
+   * Show the components; triggers the expand or collapse animation
    */
   in: __WEBPACK_IMPORTED_MODULE_8_prop_types___default.a.bool,
 
   /**
-   * Wait until the first "enter" transition to mount the component (add it to the DOM)
+   * Wait until the first "enter" transition to mount the components (add it to the DOM)
    */
   mountOnEnter: __WEBPACK_IMPORTED_MODULE_8_prop_types___default.a.bool,
 
   /**
-   * Unmount the component (remove it from the DOM) when it is collapsed
+   * Unmount the components (remove it from the DOM) when it is collapsed
    */
   unmountOnExit: __WEBPACK_IMPORTED_MODULE_8_prop_types___default.a.bool,
 
   /**
-   * Run the expand animation when the component mounts, if it is initially
+   * Run the expand animation when the components mounts, if it is initially
    * shown
    */
   appear: __WEBPACK_IMPORTED_MODULE_8_prop_types___default.a.bool,
@@ -7550,27 +7550,27 @@ var propTypes = {
   timeout: __WEBPACK_IMPORTED_MODULE_8_prop_types___default.a.number,
 
   /**
-   * Callback fired before the component expands
+   * Callback fired before the components expands
    */
   onEnter: __WEBPACK_IMPORTED_MODULE_8_prop_types___default.a.func,
   /**
-   * Callback fired after the component starts to expand
+   * Callback fired after the components starts to expand
    */
   onEntering: __WEBPACK_IMPORTED_MODULE_8_prop_types___default.a.func,
   /**
-   * Callback fired after the component has expanded
+   * Callback fired after the components has expanded
    */
   onEntered: __WEBPACK_IMPORTED_MODULE_8_prop_types___default.a.func,
   /**
-   * Callback fired before the component collapses
+   * Callback fired before the components collapses
    */
   onExit: __WEBPACK_IMPORTED_MODULE_8_prop_types___default.a.func,
   /**
-   * Callback fired after the component starts to collapse
+   * Callback fired after the components starts to collapse
    */
   onExiting: __WEBPACK_IMPORTED_MODULE_8_prop_types___default.a.func,
   /**
-   * Callback fired after the component has collapsed
+   * Callback fired after the components has collapsed
    */
   onExited: __WEBPACK_IMPORTED_MODULE_8_prop_types___default.a.func,
 
@@ -7586,7 +7586,7 @@ var propTypes = {
   /**
    * Function that returns the height or width of the animating DOM node
    *
-   * Allows for providing some custom logic for how much the Collapse component
+   * Allows for providing some custom logic for how much the Collapse components
    * should animate in its specified dimension. Called with the current
    * dimension prop value and the DOM node.
    */
@@ -7899,7 +7899,7 @@ var propTypes = {
   children: __WEBPACK_IMPORTED_MODULE_12_prop_types_extra_lib_all___default()(Object(__WEBPACK_IMPORTED_MODULE_22__utils_PropTypes__["c" /* requiredRoles */])(TOGGLE_ROLE, MENU_ROLE), Object(__WEBPACK_IMPORTED_MODULE_22__utils_PropTypes__["a" /* exclusiveRoles */])(MENU_ROLE)),
 
   /**
-   * Whether or not component is disabled.
+   * Whether or not components is disabled.
    */
   disabled: __WEBPACK_IMPORTED_MODULE_10_prop_types___default.a.bool,
 
@@ -7944,11 +7944,11 @@ var propTypes = {
   role: __WEBPACK_IMPORTED_MODULE_10_prop_types___default.a.string,
 
   /**
-   * Which event when fired outside the component will cause it to be closed
+   * Which event when fired outside the components will cause it to be closed
    *
    * *Note: For custom dropdown components, you will have to pass the
    * `rootCloseEvent` to `<RootCloseWrapper>` in your custom dropdown menu
-   * component ([similarly to how it is implemented in `<Dropdown.Menu>`](https://github.com/react-bootstrap/react-bootstrap/blob/v0.31.5/src/DropdownMenu.js#L115-L119)).*
+   * components ([similarly to how it is implemented in `<Dropdown.Menu>`](https://github.com/react-bootstrap/react-bootstrap/blob/v0.31.5/src/DropdownMenu.js#L115-L119)).*
    */
   rootCloseEvent: __WEBPACK_IMPORTED_MODULE_10_prop_types___default.a.oneOf(['click', 'mousedown']),
 
@@ -8095,7 +8095,7 @@ var Dropdown = function (_React$Component) {
     };
 
     if (typeof child.ref === 'string') {
-      process.env.NODE_ENV !== 'production' ? __WEBPACK_IMPORTED_MODULE_16_warning___default()(false, 'String refs are not supported on `<Dropdown.Menu>` components. ' + 'To apply a ref to the component use the callback signature:\n\n ' + 'https://facebook.github.io/react/docs/more-about-refs.html#the-ref-callback-attribute') : void 0;
+      process.env.NODE_ENV !== 'production' ? __WEBPACK_IMPORTED_MODULE_16_warning___default()(false, 'String refs are not supported on `<Dropdown.Menu>` components. ' + 'To apply a ref to the components use the callback signature:\n\n ' + 'https://facebook.github.io/react/docs/more-about-refs.html#the-ref-callback-attribute') : void 0;
     } else {
       ref = Object(__WEBPACK_IMPORTED_MODULE_21__utils_createChainedFunction__["a" /* default */])(child.ref, ref);
     }
@@ -8120,7 +8120,7 @@ var Dropdown = function (_React$Component) {
     };
 
     if (typeof child.ref === 'string') {
-      process.env.NODE_ENV !== 'production' ? __WEBPACK_IMPORTED_MODULE_16_warning___default()(false, 'String refs are not supported on `<Dropdown.Toggle>` components. ' + 'To apply a ref to the component use the callback signature:\n\n ' + 'https://facebook.github.io/react/docs/more-about-refs.html#the-ref-callback-attribute') : void 0;
+      process.env.NODE_ENV !== 'production' ? __WEBPACK_IMPORTED_MODULE_16_warning___default()(false, 'String refs are not supported on `<Dropdown.Toggle>` components. ' + 'To apply a ref to the components use the callback signature:\n\n ' + 'https://facebook.github.io/react/docs/more-about-refs.html#the-ref-callback-attribute') : void 0;
     } else {
       ref = Object(__WEBPACK_IMPORTED_MODULE_21__utils_createChainedFunction__["a" /* default */])(child.ref, ref);
     }
@@ -8162,7 +8162,7 @@ var Dropdown = function (_React$Component) {
     }
 
     // This intentionally forwards bsSize and bsStyle (if set) to the
-    // underlying component, to allow it to render size and style variants.
+    // underlying components, to allow it to render size and style variants.
 
     return __WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
       Component,
@@ -8570,7 +8570,7 @@ var DropdownToggle = function (_React$Component) {
     var useCaret = !noCaret;
 
     // This intentionally forwards bsSize and bsStyle (if set) to the
-    // underlying component, to allow it to render size and style variants.
+    // underlying components, to allow it to render size and style variants.
 
     // FIXME: Should this really fall back to `title` as children?
 
@@ -8635,22 +8635,22 @@ var _fadeStyles;
 
 var propTypes = {
   /**
-   * Show the component; triggers the fade in or fade out animation
+   * Show the components; triggers the fade in or fade out animation
    */
   in: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.bool,
 
   /**
-   * Wait until the first "enter" transition to mount the component (add it to the DOM)
+   * Wait until the first "enter" transition to mount the components (add it to the DOM)
    */
   mountOnEnter: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.bool,
 
   /**
-   * Unmount the component (remove it from the DOM) when it is faded out
+   * Unmount the components (remove it from the DOM) when it is faded out
    */
   unmountOnExit: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.bool,
 
   /**
-   * Run the fade in animation when the component mounts, if it is initially
+   * Run the fade in animation when the components mounts, if it is initially
    * shown
    */
   appear: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.bool,
@@ -8663,27 +8663,27 @@ var propTypes = {
   timeout: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.number,
 
   /**
-   * Callback fired before the component fades in
+   * Callback fired before the components fades in
    */
   onEnter: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.func,
   /**
-   * Callback fired after the component starts to fade in
+   * Callback fired after the components starts to fade in
    */
   onEntering: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.func,
   /**
-   * Callback fired after the has component faded in
+   * Callback fired after the has components faded in
    */
   onEntered: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.func,
   /**
-   * Callback fired before the component fades out
+   * Callback fired before the components fades out
    */
   onExit: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.func,
   /**
-   * Callback fired after the component starts to fade out
+   * Callback fired after the components starts to fade out
    */
   onExiting: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.func,
   /**
-   * Callback fired after the component has faded out
+   * Callback fired after the components has faded out
    */
   onExited: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.func
 };
@@ -9373,7 +9373,7 @@ var propTypes = {
    */
   fluid: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.bool,
   /**
-   * You can use a custom element for this component
+   * You can use a custom element for this components
    */
   componentClass: __WEBPACK_IMPORTED_MODULE_8_prop_types_extra_lib_elementType___default.a
 };
@@ -9966,7 +9966,7 @@ var Label = function (_React$Component) {
 
 var propTypes = {
   /**
-   * You can use a custom element type for this component.
+   * You can use a custom element type for this components.
    *
    * If not specified, it will be treated as `'li'` if every child is a
    * non-actionable `<ListGroupItem>`, and `'div'` otherwise.
@@ -10971,7 +10971,7 @@ MenuItem.defaultProps = defaultProps;
 var propTypes = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_extends___default()({}, __WEBPACK_IMPORTED_MODULE_13_react_overlays_lib_Modal___default.a.propTypes, __WEBPACK_IMPORTED_MODULE_18__ModalDialog__["a" /* default */].propTypes, {
 
   /**
-   * Include a backdrop component. Specify 'static' for a backdrop that doesn't
+   * Include a backdrop components. Specify 'static' for a backdrop that doesn't
    * trigger an "onHide" when clicked.
    */
   backdrop: __WEBPACK_IMPORTED_MODULE_11_prop_types___default.a.oneOf(['static', true, false]),
@@ -10995,7 +10995,7 @@ var propTypes = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_extends___defa
   /**
    * A Component type that provides the modal content Markup. This is a useful
    * prop when you want to use your own styles and markup to create a custom
-   * modal component.
+   * modal components.
    */
   dialogComponentClass: __WEBPACK_IMPORTED_MODULE_15_prop_types_extra_lib_elementType___default.a,
 
@@ -11535,7 +11535,7 @@ var propTypes = {
 
   /**
    * A Callback fired when the close button is clicked. If used directly inside
-   * a Modal component, the onHide will automatically be propagated up to the
+   * a Modal components, the onHide will automatically be propagated up to the
    * parent Modal `onHide`.
    */
   onHide: __WEBPACK_IMPORTED_MODULE_6_prop_types___default.a.func
@@ -11921,7 +11921,7 @@ var Nav = function (_React$Component) {
 
 
     if (tabContainer) {
-      process.env.NODE_ENV !== 'production' ? __WEBPACK_IMPORTED_MODULE_11_warning___default()(!id && !controls, 'In the context of a `<TabContainer>`, `<NavItem>`s are given ' + 'generated `id` and `aria-controls` attributes for the sake of ' + 'proper component accessibility. Any provided ones will be ignored. ' + 'To control these attributes directly, provide a `generateChildId` ' + 'prop to the parent `<TabContainer>`.') : void 0;
+      process.env.NODE_ENV !== 'production' ? __WEBPACK_IMPORTED_MODULE_11_warning___default()(!id && !controls, 'In the context of a `<TabContainer>`, `<NavItem>`s are given ' + 'generated `id` and `aria-controls` attributes for the sake of ' + 'proper components accessibility. Any provided ones will be ignored. ' + 'To control these attributes directly, provide a `generateChildId` ' + 'prop to the parent `<TabContainer>`.') : void 0;
 
       id = tabContainer.getTabId(eventKey);
       controls = tabContainer.getPaneId(eventKey);
@@ -12399,7 +12399,7 @@ var propTypes = {
   fluid: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.bool,
 
   /**
-   * Set a custom element for this component.
+   * Set a custom element for this components.
    */
   componentClass: __WEBPACK_IMPORTED_MODULE_8_prop_types_extra_lib_elementType___default.a,
   /**
@@ -13184,7 +13184,7 @@ var propTypes = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_extends___defa
   // FIXME: This should be `defaultShow`.
   /**
    * The initial visibility state of the Overlay. For more nuanced visibility
-   * control, consider using the Overlay component directly.
+   * control, consider using the Overlay components directly.
    */
   defaultOverlayShown: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.bool,
 
@@ -13407,7 +13407,7 @@ var OverlayTrigger = function (_React$Component) {
       triggerProps['aria-describedby'] = overlay.props.id;
     }
 
-    // FIXME: The logic here for passing through handlers on this component is
+    // FIXME: The logic here for passing through handlers on this components is
     // inconsistent. We shouldn't be passing any of these props through.
 
     triggerProps.onClick = Object(__WEBPACK_IMPORTED_MODULE_11__utils_createChainedFunction__["a" /* default */])(childProps.onClick, onClick);
@@ -13991,7 +13991,7 @@ var defaultGetId = function defaultGetId(id, type) {
 var propTypes = {
   /**
    * Controls the collapsed/expanded state ofthe Panel. Requires
-   * a `Panel.Collapse` or `<Panel.Body collapsible>` child component
+   * a `Panel.Collapse` or `<Panel.Body collapsible>` child components
    * in order to actually animate out or in.
    *
    * @controllable onToggle
@@ -14006,7 +14006,7 @@ var propTypes = {
   eventKey: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.any,
 
   /**
-   * An HTML `id` attribute uniquely identifying the Panel component.
+   * An HTML `id` attribute uniquely identifying the Panel components.
    */
   id: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.string
 };
@@ -14165,7 +14165,7 @@ __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default()(Unco
 
 var propTypes = {
   /**
-   * A convenience prop that renders a Collapse component around the Body for
+   * A convenience prop that renders a Collapse components around the Body for
    * situations when the parent Panel only contains a single Panel.Body child.
    *
    * renders:
@@ -14270,27 +14270,27 @@ PanelBody.contextTypes = contextTypes;
 
 var propTypes = {
   /**
-   * Callback fired before the component expands
+   * Callback fired before the components expands
    */
   onEnter: __WEBPACK_IMPORTED_MODULE_4_prop_types___default.a.func,
   /**
-   * Callback fired after the component starts to expand
+   * Callback fired after the components starts to expand
    */
   onEntering: __WEBPACK_IMPORTED_MODULE_4_prop_types___default.a.func,
   /**
-   * Callback fired after the component has expanded
+   * Callback fired after the components has expanded
    */
   onEntered: __WEBPACK_IMPORTED_MODULE_4_prop_types___default.a.func,
   /**
-   * Callback fired before the component collapses
+   * Callback fired before the components collapses
    */
   onExit: __WEBPACK_IMPORTED_MODULE_4_prop_types___default.a.func,
   /**
-   * Callback fired after the component starts to collapse
+   * Callback fired after the components starts to collapse
    */
   onExiting: __WEBPACK_IMPORTED_MODULE_4_prop_types___default.a.func,
   /**
-   * Callback fired after the component has collapsed
+   * Callback fired after the components has collapsed
    */
   onExited: __WEBPACK_IMPORTED_MODULE_4_prop_types___default.a.func
 };
@@ -14751,7 +14751,7 @@ PanelHeading.contextTypes = contextTypes;
 var propTypes = {
   componentClass: __WEBPACK_IMPORTED_MODULE_8_react_prop_types_lib_elementType___default.a,
   /**
-   * A convenience prop that renders the Panel.Title as a panel collapse toggle component
+   * A convenience prop that renders the Panel.Title as a panel collapse toggle components
    * for the common use-case.
    */
   toggle: __WEBPACK_IMPORTED_MODULE_6_prop_types___default.a.bool
@@ -14862,7 +14862,7 @@ var propTypes = {
    */
   onClick: __WEBPACK_IMPORTED_MODULE_4_prop_types___default.a.func,
   /**
-   * You can use a custom element for this component
+   * You can use a custom element for this components
    */
   componentClass: __WEBPACK_IMPORTED_MODULE_7_react_prop_types_lib_elementType___default.a
 };
@@ -15467,7 +15467,7 @@ Radio.defaultProps = defaultProps;
 
 var propTypes = {
   /**
-   * This component requires a single child element
+   * This components requires a single child element
    */
   children: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.element.isRequired,
   /**
@@ -16170,7 +16170,7 @@ var propTypes = {
   /**
    * Sets a default animation strategy for all children `<TabPane>`s. Use
    * `false` to disable, `true` to enable the default `<Fade>` animation or
-   * a react-transition-group v2 `<Transition/>` component.
+   * a react-transition-group v2 `<Transition/>` components.
    */
   animation: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.oneOfType([__WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.bool, __WEBPACK_IMPORTED_MODULE_8_prop_types_extra_lib_elementType___default.a]),
 
@@ -16392,7 +16392,7 @@ var propTypes = {
   /**
    * Use animation when showing or hiding `<TabPane>`s. Use `false` to disable,
    * `true` to enable the default `<Fade>` animation or
-   * a react-transition-group v2 `<Transition/>` component.
+   * a react-transition-group v2 `<Transition/>` components.
    */
   animation: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.oneOfType([__WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.bool, __WEBPACK_IMPORTED_MODULE_8_prop_types_extra_lib_elementType___default.a]),
 
@@ -16604,7 +16604,7 @@ var TabPane = function (_React$Component) {
     });
 
     if (tabContainer) {
-      process.env.NODE_ENV !== 'production' ? __WEBPACK_IMPORTED_MODULE_9_warning___default()(!elementProps.id && !elementProps['aria-labelledby'], 'In the context of a `<TabContainer>`, `<TabPanes>` are given ' + 'generated `id` and `aria-labelledby` attributes for the sake of ' + 'proper component accessibility. Any provided ones will be ignored. ' + 'To control these attributes directly provide a `generateChildId` ' + 'prop to the parent `<TabContainer>`.') : void 0;
+      process.env.NODE_ENV !== 'production' ? __WEBPACK_IMPORTED_MODULE_9_warning___default()(!elementProps.id && !elementProps['aria-labelledby'], 'In the context of a `<TabContainer>`, `<TabPanes>` are given ' + 'generated `id` and `aria-labelledby` attributes for the sake of ' + 'proper components accessibility. Any provided ones will be ignored. ' + 'To control these attributes directly provide a `generateChildId` ' + 'prop to the parent `<TabContainer>`.') : void 0;
 
       elementProps.id = tabContainer.getPaneId(eventKey);
       elementProps['aria-labelledby'] = tabContainer.getTabId(eventKey);
@@ -16979,23 +16979,23 @@ Object(__WEBPACK_IMPORTED_MODULE_13__utils_bootstrapUtils__["bsClass"])('tab', T
 
 var propTypes = {
   /**
-   * src property that is passed down to the image inside this component
+   * src property that is passed down to the image inside this components
    */
   src: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.string,
   /**
-   * alt property that is passed down to the image inside this component
+   * alt property that is passed down to the image inside this components
    */
   alt: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.string,
   /**
-   * href property that is passed down to the image inside this component
+   * href property that is passed down to the image inside this components
    */
   href: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.string,
   /**
-   * onError callback that is passed down to the image inside this component
+   * onError callback that is passed down to the image inside this components
    */
   onError: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.func,
   /**
-   * onLoad callback that is passed down to the image inside this component
+   * onLoad callback that is passed down to the image inside this components
    */
   onLoad: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.func
 };
@@ -17966,7 +17966,7 @@ var Style = {
  * but only maps over children that are "valid components".
  *
  * The mapFunction provided index will be normalised to the components mapped,
- * so an invalid component would not increase the index.
+ * so an invalid components would not increase the index.
  *
  * @param {?*} children Children tree container.
  * @param {function(*, int)} func.
@@ -18193,7 +18193,7 @@ function curry(fn) {
 
 function prefix(props, variant) {
   var bsClass = (props.bsClass || '').trim();
-  !(bsClass != null) ? process.env.NODE_ENV !== 'production' ? __WEBPACK_IMPORTED_MODULE_2_invariant___default()(false, 'A `bsClass` prop is required for this component') : __WEBPACK_IMPORTED_MODULE_2_invariant___default()(false) : void 0;
+  !(bsClass != null) ? process.env.NODE_ENV !== 'production' ? __WEBPACK_IMPORTED_MODULE_2_invariant___default()(false, 'A `bsClass` prop is required for this components') : __WEBPACK_IMPORTED_MODULE_2_invariant___default()(false) : void 0;
   return bsClass + (variant ? '-' + variant : '');
 }
 
@@ -18349,7 +18349,7 @@ function splitBsPropsAndOmit(props, omittedPropNames) {
 }
 
 /**
- * Add a style variant to a Component. Mutates the propTypes of the component
+ * Add a style variant to a Component. Mutates the propTypes of the components
  * in order to validate the new variant.
  */
 function addStyle(Component) {
@@ -19389,7 +19389,7 @@ var validateEventDispatches;
  * @param {SyntheticEvent} event SyntheticEvent to handle
  * @param {boolean} simulated If the event is simulated (changes exn behavior)
  * @param {function} listener Application-level callback
- * @param {*} inst Internal component instance
+ * @param {*} inst Internal components instance
  */
 function executeDispatch(event, simulated, listener, inst) {
   var type = event.type || 'unknown-event';
@@ -19763,11 +19763,11 @@ function getInstanceFromNode$1(node) {
 function getNodeFromInstance$1(inst) {
   if (inst.tag === HostComponent || inst.tag === HostText) {
     // In Fiber this, is just the state node right now. We assume it will be
-    // a host component or host text.
+    // a host components or host text.
     return inst.stateNode;
   }
 
-  // Without this first invariant, passing a non-DOM-component triggers the next
+  // Without this first invariant, passing a non-DOM-components triggers the next
   // invariant for a missing parent, which is super confusing.
   invariant(false, 'getNodeFromInstance: Invalid argument.');
 }
@@ -20893,7 +20893,7 @@ function batchedUpdates(fn, bookkeeping) {
     // Here we wait until all updates have propagated, which is important
     // when using controlled components within layers:
     // https://github.com/facebook/react/issues/1698
-    // Then we restore state of any controlled component.
+    // Then we restore state of any controlled components.
     isNestingBatched = false;
     restoreStateIfNeeded();
   }
@@ -21160,7 +21160,7 @@ function manualDispatchChangeEvent(nativeEvent) {
   // before the next rerender (including event handlers attached to ancestor
   // elements instead of directly on the input). Without this, controlled
   // components don't work properly in conjunction with event bubbling because
-  // the component is rerendered and the value reverted before all the event
+  // the components is rerendered and the value reverted before all the event
   // handlers can run. See https://github.com/facebook/react/issues/708.
   batchedUpdates(runEventInBatch, event);
 }
@@ -21295,7 +21295,7 @@ function handleControlledInputBlur(inst, node) {
     return;
   }
 
-  // Fiber and ReactDOM keep wrapper state in separate places
+  // Fiber and ReactDOM keep wrappers state in separate places
   var state = inst._wrapperState || node._wrapperState;
 
   if (!state || !state.controlled || node.type !== 'number') {
@@ -21639,7 +21639,7 @@ function isMounted(component) {
     if (owner !== null && owner.tag === ClassComponent) {
       var ownerFiber = owner;
       var instance = ownerFiber.stateNode;
-      warning(instance._warnedAboutRefsInRender, '%s is accessing isMounted inside its render() function. ' + 'render() should be a pure function of props and state. It should ' + 'never access something that requires stale data from the previous ' + 'render, such as refs. Move this logic to componentDidMount and ' + 'componentDidUpdate instead.', getComponentName(ownerFiber) || 'A component');
+      warning(instance._warnedAboutRefsInRender, '%s is accessing isMounted inside its render() function. ' + 'render() should be a pure function of props and state. It should ' + 'never access something that requires stale data from the previous ' + 'render, such as refs. Move this logic to componentDidMount and ' + 'componentDidUpdate instead.', getComponentName(ownerFiber) || 'A components');
       instance._warnedAboutRefsInRender = true;
     }
   }
@@ -21652,7 +21652,7 @@ function isMounted(component) {
 }
 
 function assertIsMounted(fiber) {
-  !(isFiberMountedImpl(fiber) === MOUNTED) ? invariant(false, 'Unable to find node on an unmounted component.') : void 0;
+  !(isFiberMountedImpl(fiber) === MOUNTED) ? invariant(false, 'Unable to find node on an unmounted components.') : void 0;
 }
 
 function findCurrentFiberUsingSlowPath(fiber) {
@@ -21660,7 +21660,7 @@ function findCurrentFiberUsingSlowPath(fiber) {
   if (!alternate) {
     // If there is no alternate, then we only need to check if it is mounted.
     var state = isFiberMountedImpl(fiber);
-    !(state !== UNMOUNTED) ? invariant(false, 'Unable to find node on an unmounted component.') : void 0;
+    !(state !== UNMOUNTED) ? invariant(false, 'Unable to find node on an unmounted components.') : void 0;
     if (state === MOUNTING) {
       return null;
     }
@@ -21699,7 +21699,7 @@ function findCurrentFiberUsingSlowPath(fiber) {
       }
       // We should never have an alternate for any mounting node. So the only
       // way this could possibly happen is if this was unmounted, if at all.
-      invariant(false, 'Unable to find node on an unmounted component.');
+      invariant(false, 'Unable to find node on an unmounted components.');
     }
 
     if (a['return'] !== b['return']) {
@@ -21758,7 +21758,7 @@ function findCurrentFiberUsingSlowPath(fiber) {
   }
   // If the root is not a host container, we're in a disconnected tree. I.e.
   // unmounted.
-  !(a.tag === HostRoot) ? invariant(false, 'Unable to find node on an unmounted component.') : void 0;
+  !(a.tag === HostRoot) ? invariant(false, 'Unable to find node on an unmounted components.') : void 0;
   if (a.stateNode.current === a) {
     // We've determined that A is the current branch.
     return fiber;
@@ -21773,7 +21773,7 @@ function findCurrentHostFiber(parent) {
     return null;
   }
 
-  // Next we'll drill down this component to find the first HostComponent/Text.
+  // Next we'll drill down this components to find the first HostComponent/Text.
   var node = currentParent;
   while (true) {
     if (node.tag === HostComponent || node.tag === HostText) {
@@ -21806,7 +21806,7 @@ function findCurrentHostFiberWithNoPortals(parent) {
     return null;
   }
 
-  // Next we'll drill down this component to find the first HostComponent/Text.
+  // Next we'll drill down this components to find the first HostComponent/Text.
   var node = currentParent;
   while (true) {
     if (node.tag === HostComponent || node.tag === HostText) {
@@ -21837,7 +21837,7 @@ var CALLBACK_BOOKKEEPING_POOL_SIZE = 10;
 var callbackBookkeepingPool = [];
 
 /**
- * Find the deepest React component completely containing the root of the
+ * Find the deepest React components completely containing the root of the
  * passed-in instance (for use when entire React trees are nested within each
  * other). If React trees are not nested, returns null.
  */
@@ -21968,7 +21968,7 @@ function dispatchEvent(topLevelType, nativeEvent) {
   var targetInst = getClosestInstanceFromNode(nativeEventTarget);
   if (targetInst !== null && typeof targetInst.tag === 'number' && !isFiberMounted(targetInst)) {
     // If we get an event (ex: img onload) before committing that
-    // component's mount, ignore it for now (that is, treat it as if it was an
+    // components's mount, ignore it for now (that is, treat it as if it was an
     // event on a non-React tree). We might also consider queueing events and
     // dispatching them after the mount.
     targetInst = null;
@@ -23561,10 +23561,10 @@ var getFiberMarkName = function (label, debugID) {
 
 var getFiberLabel = function (componentName, isMounted, phase) {
   if (phase === null) {
-    // These are composite component total time measurements.
+    // These are composite components total time measurements.
     return componentName + ' [' + (isMounted ? 'update' : 'mount') + ']';
   } else {
-    // Composite component methods.
+    // Composite components methods.
     return componentName + '.' + phase;
   }
 };
@@ -23950,7 +23950,7 @@ function getMaskedContext(workInProgress, unmaskedContext) {
   }
 
   // Cache unmasked context so we can avoid recreating masked context unless necessary.
-  // Context is created before the class component is instantiated so check for instance.
+  // Context is created before the class components is instantiated so check for instance.
   if (instance) {
     cacheContext(workInProgress, unmaskedContext, context);
   }
@@ -24027,7 +24027,7 @@ function processChildContext(fiber, parentContext) {
     checkPropTypes(childContextTypes, childContext, 'child context', name,
     // In practice, there is one case in which we won't get a stack. It's when
     // somebody calls unstable_renderSubtreeIntoContainer() and we process
-    // context from the parent component instance. The stack will be missing
+    // context from the parent components instance. The stack will be missing
     // because it's outside of the reconciliation, and so the pointer has not
     // been set. This is rare and doesn't matter. We'll also remove that API.
     ReactDebugCurrentFiber.getCurrentFiberStackAddendum);
@@ -24089,7 +24089,7 @@ function resetContext() {
 function findCurrentUnmaskedContext(fiber) {
   // Currently this is only used with renderSubtreeIntoContainer; not sure if it
   // makes sense elsewhere
-  !(isFiberMounted(fiber) && fiber.tag === ClassComponent) ? invariant(false, 'Expected subtree parent to be a mounted class component. This error is likely caused by a bug in React. Please file an issue.') : void 0;
+  !(isFiberMounted(fiber) && fiber.tag === ClassComponent) ? invariant(false, 'Expected subtree parent to be a mounted class components. This error is likely caused by a bug in React. Please file an issue.') : void 0;
 
   var node = fiber;
   while (node.tag !== HostRoot) {
@@ -24146,7 +24146,7 @@ var AsyncUpdates = 1;
 }
 
 // A Fiber is work on a Component that needs to be done or was done. There can
-// be more than one per component.
+// be more than one per components.
 
 
 {
@@ -24304,7 +24304,7 @@ function createFiberFromElement(element, internalContextTag, expirationTime) {
     var info = '';
     {
       if (type === undefined || typeof type === 'object' && type !== null && Object.keys(type).length === 0) {
-        info += ' You likely forgot to export your component from the file ' + "it's defined in, or you might have mixed up default and named imports.";
+        info += ' You likely forgot to export your components from the file ' + "it's defined in, or you might have mixed up default and named imports.";
       }
       var ownerName = owner ? getComponentName(owner) : null;
       if (ownerName) {
@@ -24750,7 +24750,7 @@ var isArray = Array.isArray;
 }
 
 var ReactFiberClassComponent = function (scheduleWork, computeExpirationForFiber, memoizeProps, memoizeState) {
-  // Class component state updater
+  // Class components state updater
   var updater = {
     isMounted: isMounted,
     enqueueSetState: function (instance, partialState, callback) {
@@ -24853,9 +24853,9 @@ var ReactFiberClassComponent = function (scheduleWork, computeExpirationForFiber
 
       if (!renderPresent) {
         if (type.prototype && typeof type.prototype.render === 'function') {
-          warning(false, '%s(...): No `render` method found on the returned component ' + 'instance: did you accidentally return an object from the constructor?', name);
+          warning(false, '%s(...): No `render` method found on the returned components ' + 'instance: did you accidentally return an object from the constructor?', name);
         } else {
-          warning(false, '%s(...): No `render` method found on the returned component ' + 'instance: you may have forgotten to define `render`.', name);
+          warning(false, '%s(...): No `render` method found on the returned components ' + 'instance: you may have forgotten to define `render`.', name);
         }
       }
 
@@ -24870,7 +24870,7 @@ var ReactFiberClassComponent = function (scheduleWork, computeExpirationForFiber
       var noComponentShouldUpdate = typeof instance.componentShouldUpdate !== 'function';
       warning(noComponentShouldUpdate, '%s has a method called ' + 'componentShouldUpdate(). Did you mean shouldComponentUpdate()? ' + 'The name is phrased as a question because the function is ' + 'expected to return a value.', name);
       if (type.prototype && type.prototype.isPureReactComponent && typeof instance.shouldComponentUpdate !== 'undefined') {
-        warning(false, '%s has a method called shouldComponentUpdate(). ' + 'shouldComponentUpdate should not be used when extending React.PureComponent. ' + 'Please extend React.Component if shouldComponentUpdate is used.', getComponentName(workInProgress) || 'A pure component');
+        warning(false, '%s has a method called shouldComponentUpdate(). ' + 'shouldComponentUpdate should not be used when extending React.PureComponent. ' + 'Please extend React.Component if shouldComponentUpdate is used.', getComponentName(workInProgress) || 'A pure components');
       }
       var noComponentDidUnmount = typeof instance.componentDidUnmount !== 'function';
       warning(noComponentDidUnmount, '%s has a method called ' + 'componentDidUnmount(). But there is no such lifecycle method. ' + 'Did you mean componentWillUnmount()?', name);
@@ -24879,7 +24879,7 @@ var ReactFiberClassComponent = function (scheduleWork, computeExpirationForFiber
       var noComponentWillRecieveProps = typeof instance.componentWillRecieveProps !== 'function';
       warning(noComponentWillRecieveProps, '%s has a method called ' + 'componentWillRecieveProps(). Did you mean componentWillReceiveProps()?', name);
       var hasMutatedProps = instance.props !== workInProgress.pendingProps;
-      warning(instance.props === undefined || !hasMutatedProps, '%s(...): When calling super() in `%s`, make sure to pass ' + "up the same props that your component's constructor was passed.", name, name);
+      warning(instance.props === undefined || !hasMutatedProps, '%s(...): When calling super() in `%s`, make sure to pass ' + "up the same props that your components's constructor was passed.", name, name);
       var noInstanceDefaultProps = !instance.defaultProps;
       warning(noInstanceDefaultProps, 'Setting defaultProps as an instance property on %s is not supported and will be ignored.' + ' Instead, define defaultProps as a static property on %s.', name, name);
     }
@@ -24938,7 +24938,7 @@ var ReactFiberClassComponent = function (scheduleWork, computeExpirationForFiber
 
     if (oldState !== instance.state) {
       {
-        warning(false, '%s.componentWillMount(): Assigning directly to this.state is ' + "deprecated (except inside a component's " + 'constructor). Use setState instead.', getComponentName(workInProgress));
+        warning(false, '%s.componentWillMount(): Assigning directly to this.state is ' + "deprecated (except inside a components's " + 'constructor). Use setState instead.', getComponentName(workInProgress));
       }
       updater.enqueueReplaceState(instance, instance.state, null);
     }
@@ -24959,7 +24959,7 @@ var ReactFiberClassComponent = function (scheduleWork, computeExpirationForFiber
       {
         var componentName = getComponentName(workInProgress) || 'Component';
         if (!didWarnAboutStateAssignmentForComponent[componentName]) {
-          warning(false, '%s.componentWillReceiveProps(): Assigning directly to ' + "this.state is deprecated (except inside a component's " + 'constructor). Use setState instead.', componentName);
+          warning(false, '%s.componentWillReceiveProps(): Assigning directly to ' + "this.state is deprecated (except inside a components's " + 'constructor). Use setState instead.', componentName);
           didWarnAboutStateAssignmentForComponent[componentName] = true;
         }
       }
@@ -25321,7 +25321,7 @@ function warnOnFunctionType() {
   warning(false, 'Functions are not valid as a React child. This may happen if ' + 'you return a Component instead of <Component /> from render. ' + 'Or maybe you meant to call this function rather than return it.%s', getCurrentFiberStackAddendum$1() || '');
 }
 
-// This wrapper function exists because I expect to clone the code in each path
+// This wrappers function exists because I expect to clone the code in each path
 // to be able to optimize each path individually by branching early. This needs
 // a compiler or we can do it manually. Helpers that don't need this branching
 // live outside of this function.
@@ -26227,7 +26227,7 @@ function ChildReconciler(shouldTrackSideEffects) {
     }
     if (typeof newChild === 'undefined') {
       // If the new child is undefined, and the return fiber is a composite
-      // component, throw an error. If Fiber return types are disabled,
+      // components, throw an error. If Fiber return types are disabled,
       // we already threw above.
       switch (returnFiber.tag) {
         case ClassComponent:
@@ -26310,7 +26310,7 @@ var ReactFiberBeginWork = function (config, hostContext, hydrationContext, sched
 
   function reconcileChildrenAtExpirationTime(current, workInProgress, nextChildren, renderExpirationTime) {
     if (current === null) {
-      // If this is a fresh new component that hasn't been rendered yet, we
+      // If this is a fresh new components that hasn't been rendered yet, we
       // won't update its child set by applying minimal side-effects. Instead,
       // we will add them all to the child before it gets rendered. That means
       // we can optimize this reconciliation pass by not tracking side-effects.
@@ -26576,7 +26576,7 @@ var ReactFiberBeginWork = function (config, hostContext, hydrationContext, sched
   }
 
   function mountIndeterminateComponent(current, workInProgress, renderExpirationTime) {
-    !(current === null) ? invariant(false, 'An indeterminate component should never have mounted. This error is likely caused by a bug in React. Please file an issue.') : void 0;
+    !(current === null) ? invariant(false, 'An indeterminate components should never have mounted. This error is likely caused by a bug in React. Please file an issue.') : void 0;
     var fn = workInProgress.type;
     var props = workInProgress.pendingProps;
     var unmaskedContext = getUnmaskedContext(workInProgress);
@@ -26587,7 +26587,7 @@ var ReactFiberBeginWork = function (config, hostContext, hydrationContext, sched
     {
       if (fn.prototype && typeof fn.prototype.render === 'function') {
         var componentName = getComponentName(workInProgress);
-        warning(false, "The <%s /> component appears to have a render method, but doesn't extend React.Component. " + 'This is likely to cause errors. Change %s to extend React.Component instead.', componentName, componentName);
+        warning(false, "The <%s /> components appears to have a render method, but doesn't extend React.Component. " + 'This is likely to cause errors. Change %s to extend React.Component instead.', componentName, componentName);
       }
       ReactCurrentOwner.current = workInProgress;
       value = fn(props, context);
@@ -26607,13 +26607,13 @@ var ReactFiberBeginWork = function (config, hostContext, hydrationContext, sched
       mountClassInstance(workInProgress, renderExpirationTime);
       return finishClassComponent(current, workInProgress, true, hasContext);
     } else {
-      // Proceed under the assumption that this is a functional component
+      // Proceed under the assumption that this is a functional components
       workInProgress.tag = FunctionalComponent;
       {
         var Component = workInProgress.type;
 
         if (Component) {
-          warning(!Component.childContextTypes, '%s(...): childContextTypes cannot be defined on a functional component.', Component.displayName || Component.name || 'Component');
+          warning(!Component.childContextTypes, '%s(...): childContextTypes cannot be defined on a functional components.', Component.displayName || Component.name || 'Component');
         }
         if (workInProgress.ref !== null) {
           var info = '';
@@ -26797,7 +26797,7 @@ var ReactFiberBeginWork = function (config, hostContext, hydrationContext, sched
       case CallComponent:
         return updateCallComponent(current, workInProgress, renderExpirationTime);
       case ReturnComponent:
-        // A return component is just a placeholder, we can just run through the
+        // A return components is just a placeholder, we can just run through the
         // next one immediately.
         return null;
       case HostPortal:
@@ -26845,7 +26845,7 @@ var ReactFiberBeginWork = function (config, hostContext, hydrationContext, sched
     workInProgress.firstEffect = null;
     workInProgress.lastEffect = null;
 
-    // Unmount the current children as if the component rendered null
+    // Unmount the current children as if the components rendered null
     var nextChildren = null;
     reconcileChildrenAtExpirationTime(current, workInProgress, nextChildren, renderExpirationTime);
 
@@ -26898,7 +26898,7 @@ var ReactFiberCompleteWork = function (config, hostContext, hydrationContext) {
     }
     while (node !== null) {
       if (node.tag === HostComponent || node.tag === HostText || node.tag === HostPortal) {
-        invariant(false, 'A call cannot have host component children.');
+        invariant(false, 'A call cannot have host components children.');
       } else if (node.tag === ReturnComponent) {
         returns.push(node.type);
       } else if (node.child !== null) {
@@ -26923,7 +26923,7 @@ var ReactFiberCompleteWork = function (config, hostContext, hydrationContext) {
 
     // First step of the call has completed. Now we need to do the second.
     // TODO: It would be nice to have a multi stage call represented by a
-    // single component, or at least tail call optimize nested ones. Currently
+    // single components, or at least tail call optimize nested ones. Currently
     // that requires additional fields that we don't want to add to the fiber.
     // So this requires nested handlers.
     // Note: This doesn't mutate the alternate node. I don't think it needs to
@@ -26983,7 +26983,7 @@ var ReactFiberCompleteWork = function (config, hostContext, hydrationContext) {
         // Noop
       };
       updateHostComponent = function (current, workInProgress, updatePayload, type, oldProps, newProps, rootContainerInstance) {
-        // TODO: Type this specific to this type of component.
+        // TODO: Type this specific to this type of components.
         workInProgress.updateQueue = updatePayload;
         // If the update payload indicates that there is a change or if there
         // is a new ref we mark this as an update. All the work is done in commitWork.
@@ -27263,7 +27263,7 @@ var ReactFiberCompleteWork = function (config, hostContext, hydrationContext) {
         return null;
       // Error cases
       case IndeterminateComponent:
-        invariant(false, 'An indeterminate component should have become determinate before completing. This error is likely caused by a bug in React. Please file an issue.');
+        invariant(false, 'An indeterminate components should have become determinate before completing. This error is likely caused by a bug in React. Please file an issue.');
       // eslint-disable-next-line no-fallthrough
       default:
         invariant(false, 'Unknown unit of work tag. This error is likely caused by a bug in React. Please file an issue.');
@@ -28146,7 +28146,7 @@ var ReactFiberHydrationContext = function (config) {
   function prepareToHydrateHostInstance(fiber, rootContainerInstance, hostContext) {
     var instance = fiber.stateNode;
     var updatePayload = hydrateInstance(instance, fiber.type, fiber.memoizedProps, rootContainerInstance, hostContext, fiber);
-    // TODO: Type this specific to this type of component.
+    // TODO: Type this specific to this type of components.
     fiber.updateQueue = updatePayload;
     // If the update payload indicates that there is a change or if there
     // is a new ref we mark this as an update.
@@ -28163,7 +28163,7 @@ var ReactFiberHydrationContext = function (config) {
     {
       if (shouldUpdate) {
         // We assume that prepareToHydrateHostTextInstance is called in a context where the
-        // hydration parent is the parent host component of this host text.
+        // hydration parent is the parent host components of this host text.
         var returnFiber = hydrationParentFiber;
         if (returnFiber !== null) {
           switch (returnFiber.tag) {
@@ -28286,13 +28286,13 @@ function logCapturedError(capturedError) {
         willRetry = capturedError.willRetry;
 
 
-    var componentNameMessage = componentName ? 'The above error occurred in the <' + componentName + '> component:' : 'The above error occurred in one of your React components:';
+    var componentNameMessage = componentName ? 'The above error occurred in the <' + componentName + '> components:' : 'The above error occurred in one of your React components:';
 
     var errorBoundaryMessage = void 0;
     // errorBoundaryFound check is sufficient; errorBoundaryName check is to satisfy Flow.
     if (errorBoundaryFound && errorBoundaryName) {
       if (willRetry) {
-        errorBoundaryMessage = 'React will try to recreate this component tree from scratch ' + ('using the error boundary you provided, ' + errorBoundaryName + '.');
+        errorBoundaryMessage = 'React will try to recreate this components tree from scratch ' + ('using the error boundary you provided, ' + errorBoundaryName + '.');
       } else {
         errorBoundaryMessage = 'This error was initially handled by the error boundary ' + errorBoundaryName + '.\n' + 'Recreating the tree from scratch failed so React will unmount the tree.';
       }
@@ -28301,7 +28301,7 @@ function logCapturedError(capturedError) {
     }
     var combinedMessage = '' + componentNameMessage + componentStack + '\n\n' + ('' + errorBoundaryMessage);
 
-    // In development, we provide our own message with just the component stack.
+    // In development, we provide our own message with just the components stack.
     // We don't include the original error message and JS stack because the browser
     // has already printed it. Even if the application swallows the error, it is still
     // displayed by the browser thanks to the DEV-only fake event trick in ReactErrorUtils.
@@ -28324,7 +28324,7 @@ var clearCaughtError = ReactErrorUtils.clearCaughtError;
     if (didWarnStateUpdateForUnmountedComponent[componentName]) {
       return;
     }
-    warning(false, 'Can only update a mounted or mounting ' + 'component. This usually means you called setState, replaceState, ' + 'or forceUpdate on an unmounted component. This is a no-op.\n\nPlease ' + 'check the code for the %s component.', componentName);
+    warning(false, 'Can only update a mounted or mounting ' + 'component. This usually means you called setState, replaceState, ' + 'or forceUpdate on an unmounted components. This is a no-op.\n\nPlease ' + 'check the code for the %s components.', componentName);
     didWarnStateUpdateForUnmountedComponent[componentName] = true;
   };
 
@@ -28341,7 +28341,7 @@ var clearCaughtError = ReactErrorUtils.clearCaughtError;
         if (didWarnAboutStateTransition) {
           return;
         }
-        warning(false, 'Cannot update during an existing state transition (such as within ' + "`render` or another component's constructor). Render methods should " + 'be a pure function of props and state; constructor side-effects are ' + 'an anti-pattern, but can be moved to `componentWillMount`.');
+        warning(false, 'Cannot update during an existing state transition (such as within ' + "`render` or another components's constructor). Render methods should " + 'be a pure function of props and state; constructor side-effects are ' + 'an anti-pattern, but can be moved to `componentWillMount`.');
         didWarnAboutStateTransition = true;
         break;
     }
@@ -28659,7 +28659,7 @@ var ReactFiberScheduler = function (config) {
 
   function resetExpirationTime(workInProgress, renderTime) {
     if (renderTime !== Never && workInProgress.expirationTime === Never) {
-      // The children of this component are hidden. Don't bubble their
+      // The children of this components are hidden. Don't bubble their
       // expiration times.
       return;
     }
@@ -29078,7 +29078,7 @@ var ReactFiberScheduler = function (config) {
       var _componentName = getComponentName(failedWork);
 
       // Add to the collection of captured errors. This is stored as a global
-      // map of errors and their component stack location keyed by the boundaries
+      // map of errors and their components stack location keyed by the boundaries
       // that capture them. We mostly use this Map as a Set; it's a Map only to
       // avoid adding a field to Fiber to store the error.
       if (capturedErrors === null) {
@@ -29101,7 +29101,7 @@ var ReactFiberScheduler = function (config) {
         logCapturedError(capturedError);
       } catch (e) {
         // Prevent cycle if logCapturedError() throws.
-        // A cycle may still occur if logCapturedError renders a component that throws.
+        // A cycle may still occur if logCapturedError renders a components that throws.
         var suppressLogging = e && e.suppressReactErrorLogging;
         if (!suppressLogging) {
           console.error(e);
@@ -29391,7 +29391,7 @@ var ReactFiberScheduler = function (config) {
   // It's up to the renderer to call renderRoot at some point in the future.
   function requestWork(root, expirationTime) {
     if (nestedUpdateCount > NESTED_UPDATE_LIMIT) {
-      invariant(false, 'Maximum update depth exceeded. This can happen when a component repeatedly calls setState inside componentWillUpdate or componentDidUpdate. React limits the number of nested updates to prevent infinite loops.');
+      invariant(false, 'Maximum update depth exceeded. This can happen when a components repeatedly calls setState inside componentWillUpdate or componentDidUpdate. React limits the number of nested updates to prevent infinite loops.');
     }
 
     // Add the root to the schedule.
@@ -29722,7 +29722,7 @@ var ReactFiberReconciler$1 = function (config) {
     {
       if (ReactDebugCurrentFiber.phase === 'render' && ReactDebugCurrentFiber.current !== null && !didWarnAboutNestedUpdates) {
         didWarnAboutNestedUpdates = true;
-        warning(false, 'Render methods should be a pure function of props and state; ' + 'triggering nested component updates from render is not allowed. ' + 'If necessary, trigger nested updates in componentDidUpdate.\n\n' + 'Check the render method of %s.', getComponentName(ReactDebugCurrentFiber.current) || 'Unknown');
+        warning(false, 'Render methods should be a pure function of props and state; ' + 'triggering nested components updates from render is not allowed. ' + 'If necessary, trigger nested updates in componentDidUpdate.\n\n' + 'Check the render method of %s.', getComponentName(ReactDebugCurrentFiber.current) || 'Unknown');
       }
     }
 
@@ -29732,7 +29732,7 @@ var ReactFiberReconciler$1 = function (config) {
     }
 
     var expirationTime = void 0;
-    // Check if the top-level element is an async wrapper component. If so,
+    // Check if the top-level element is an async wrappers components. If so,
     // treat updates to the root as async. This is a bit weird but lets us
     // avoid a separate `renderAsync` API.
     if (enableAsyncSubtreeAPI && element != null && element.type != null && element.type.prototype != null && element.type.prototype.unstable_isAsyncReactComponent === true) {
@@ -30377,7 +30377,7 @@ function isControlled(props) {
 }
 
 /**
- * Implements an <input> host component that allows setting these optional
+ * Implements an <input> host components that allows setting these optional
  * props: `checked`, `value`, `defaultChecked`, and `defaultValue`.
  *
  * If `checked` or `value` are not supplied (or null/undefined), user actions
@@ -30424,11 +30424,11 @@ function initWrapperState(element, props) {
     ReactControlledValuePropTypes.checkPropTypes('input', props, getCurrentFiberStackAddendum$3);
 
     if (props.checked !== undefined && props.defaultChecked !== undefined && !didWarnCheckedDefaultChecked) {
-      warning(false, '%s contains an input of type %s with both checked and defaultChecked props. ' + 'Input elements must be either controlled or uncontrolled ' + '(specify either the checked prop, or the defaultChecked prop, but not ' + 'both). Decide between using a controlled or uncontrolled input ' + 'element and remove one of these props. More info: ' + 'https://fb.me/react-controlled-components', getCurrentFiberOwnerName$2() || 'A component', props.type);
+      warning(false, '%s contains an input of type %s with both checked and defaultChecked props. ' + 'Input elements must be either controlled or uncontrolled ' + '(specify either the checked prop, or the defaultChecked prop, but not ' + 'both). Decide between using a controlled or uncontrolled input ' + 'element and remove one of these props. More info: ' + 'https://fb.me/react-controlled-components', getCurrentFiberOwnerName$2() || 'A components', props.type);
       didWarnCheckedDefaultChecked = true;
     }
     if (props.value !== undefined && props.defaultValue !== undefined && !didWarnValueDefaultValue) {
-      warning(false, '%s contains an input of type %s with both value and defaultValue props. ' + 'Input elements must be either controlled or uncontrolled ' + '(specify either the value prop, or the defaultValue prop, but not ' + 'both). Decide between using a controlled or uncontrolled input ' + 'element and remove one of these props. More info: ' + 'https://fb.me/react-controlled-components', getCurrentFiberOwnerName$2() || 'A component', props.type);
+      warning(false, '%s contains an input of type %s with both value and defaultValue props. ' + 'Input elements must be either controlled or uncontrolled ' + '(specify either the value prop, or the defaultValue prop, but not ' + 'both). Decide between using a controlled or uncontrolled input ' + 'element and remove one of these props. More info: ' + 'https://fb.me/react-controlled-components', getCurrentFiberOwnerName$2() || 'A components', props.type);
       didWarnValueDefaultValue = true;
     }
   }
@@ -30456,11 +30456,11 @@ function updateWrapper(element, props) {
     var controlled = isControlled(props);
 
     if (!node._wrapperState.controlled && controlled && !didWarnUncontrolledToControlled) {
-      warning(false, 'A component is changing an uncontrolled input of type %s to be controlled. ' + 'Input elements should not switch from uncontrolled to controlled (or vice versa). ' + 'Decide between using a controlled or uncontrolled input ' + 'element for the lifetime of the component. More info: https://fb.me/react-controlled-components%s', props.type, getCurrentFiberStackAddendum$3());
+      warning(false, 'A components is changing an uncontrolled input of type %s to be controlled. ' + 'Input elements should not switch from uncontrolled to controlled (or vice versa). ' + 'Decide between using a controlled or uncontrolled input ' + 'element for the lifetime of the components. More info: https://fb.me/react-controlled-components%s', props.type, getCurrentFiberStackAddendum$3());
       didWarnUncontrolledToControlled = true;
     }
     if (node._wrapperState.controlled && !controlled && !didWarnControlledToUncontrolled) {
-      warning(false, 'A component is changing a controlled input of type %s to be uncontrolled. ' + 'Input elements should not switch from controlled to uncontrolled (or vice versa). ' + 'Decide between using a controlled or uncontrolled input ' + 'element for the lifetime of the component. More info: https://fb.me/react-controlled-components%s', props.type, getCurrentFiberStackAddendum$3());
+      warning(false, 'A components is changing a controlled input of type %s to be uncontrolled. ' + 'Input elements should not switch from controlled to uncontrolled (or vice versa). ' + 'Decide between using a controlled or uncontrolled input ' + 'element for the lifetime of the components. More info: https://fb.me/react-controlled-components%s', props.type, getCurrentFiberStackAddendum$3());
       didWarnControlledToUncontrolled = true;
     }
   }
@@ -30624,7 +30624,7 @@ function flattenChildren(children) {
 }
 
 /**
- * Implements an <option> host component that warns when `selected` is set.
+ * Implements an <option> host components that warns when `selected` is set.
  */
 
 function validateProps(element, props) {
@@ -30734,7 +30734,7 @@ function updateOptions(node, multiple, propValue, setDefaultSelected) {
 }
 
 /**
- * Implements a <select> host component that allows optionally setting the
+ * Implements a <select> host components that allows optionally setting the
  * props `value` and `defaultValue`. If `multiple` is false, the prop must be a
  * stringable. If `multiple` is true, the prop must be an array of stringables.
  *
@@ -30824,7 +30824,7 @@ var getCurrentFiberStackAddendum$5 = ReactDebugCurrentFiber.getCurrentFiberStack
 var didWarnValDefaultVal = false;
 
 /**
- * Implements a <textarea> host component that allows setting `value`, and
+ * Implements a <textarea> host components that allows setting `value`, and
  * `defaultValue`. This differs from the traditional DOM API because value is
  * usually set as PCDATA children.
  *
@@ -30922,7 +30922,7 @@ function updateWrapper$1(element, props) {
 function postMountWrapper$3(element, props) {
   var node = element;
   // This is in postMount because we need access to the DOM node, which is not
-  // available until after the component has mounted.
+  // available until after the components has mounted.
   var textContent = node.textContent;
 
   // Only set node.value if textContent is equal to the expected
@@ -30935,7 +30935,7 @@ function postMountWrapper$3(element, props) {
 }
 
 function restoreControlledState$3(element, props) {
-  // DOM component is still mounted; update
+  // DOM components is still mounted; update
   updateWrapper$1(element, props);
 }
 
@@ -31333,7 +31333,7 @@ function assertValidProps(tag, props, getStack) {
     !(typeof props.dangerouslySetInnerHTML === 'object' && HTML$1 in props.dangerouslySetInnerHTML) ? invariant(false, '`props.dangerouslySetInnerHTML` must be in the form `{__html: ...}`. Please visit https://fb.me/react-invariant-dangerously-set-inner-html for more information.') : void 0;
   }
   {
-    warning(props.suppressContentEditableWarning || !props.contentEditable || props.children == null, 'A component is `contentEditable` and contains `children` managed by ' + 'React. It is now your responsibility to guarantee that none of ' + 'those nodes are unexpectedly modified or duplicated. This is ' + 'probably not intentional.%s', getStack());
+    warning(props.suppressContentEditableWarning || !props.contentEditable || props.children == null, 'A components is `contentEditable` and contains `children` managed by ' + 'React. It is now your responsibility to guarantee that none of ' + 'those nodes are unexpectedly modified or duplicated. This is ' + 'probably not intentional.%s', getStack());
   }
   !(props.style == null || typeof props.style === 'object') ? invariant(false, 'The `style` prop expects a mapping from style properties to values, not a string. For example, style={{marginRight: spacing + \'em\'}} when using JSX.%s', getStack()) : void 0;
 }
@@ -31515,9 +31515,9 @@ function validateProperties$1(type, props) {
   if (props != null && props.value === null && !didWarnValueNull) {
     didWarnValueNull = true;
     if (type === 'select' && props.multiple) {
-      warning(false, '`value` prop on `%s` should not be null. ' + 'Consider using an empty array when `multiple` is set to `true` ' + 'to clear the component or `undefined` for uncontrolled components.%s', type, getStackAddendum$1());
+      warning(false, '`value` prop on `%s` should not be null. ' + 'Consider using an empty array when `multiple` is set to `true` ' + 'to clear the components or `undefined` for uncontrolled components.%s', type, getStackAddendum$1());
     } else {
-      warning(false, '`value` prop on `%s` should not be null. ' + 'Consider using an empty string to clear the component or `undefined` ' + 'for uncontrolled components.%s', type, getStackAddendum$1());
+      warning(false, '`value` prop on `%s` should not be null. ' + 'Consider using an empty string to clear the components or `undefined` ' + 'for uncontrolled components.%s', type, getStackAddendum$1());
     }
   }
 }
@@ -32104,7 +32104,7 @@ function getStackAddendum$2() {
     } else if (!isReserved && name !== lowerCasedName) {
       // Unknown attributes should have lowercase casing since that's how they
       // will be cased anyway with server rendering.
-      warning(false, 'React does not recognize the `%s` prop on a DOM element. If you ' + 'intentionally want it to appear in the DOM as a custom ' + 'attribute, spell it as lowercase `%s` instead. ' + 'If you accidentally passed it from a parent component, remove ' + 'it from the DOM element.%s', name, lowerCasedName, getStackAddendum$2());
+      warning(false, 'React does not recognize the `%s` prop on a DOM element. If you ' + 'intentionally want it to appear in the DOM as a custom ' + 'attribute, spell it as lowercase `%s` instead. ' + 'If you accidentally passed it from a parent components, remove ' + 'it from the DOM element.%s', name, lowerCasedName, getStackAddendum$2());
       warnedProperties$1[name] = true;
       return true;
     }
@@ -32449,7 +32449,7 @@ function createElement$1(type, props, rootContainerElement, parentNamespace) {
     if (namespaceURI === HTML_NAMESPACE) {
       if (!isCustomComponentTag && Object.prototype.toString.call(domElement) === '[object HTMLUnknownElement]' && !Object.prototype.hasOwnProperty.call(warnedUnknownTags, type)) {
         warnedUnknownTags[type] = true;
-        warning(false, 'The tag <%s> is unrecognized in this browser. ' + 'If you meant to render a React component, start its name with ' + 'an uppercase letter.', type);
+        warning(false, 'The tag <%s> is unrecognized in this browser. ' + 'If you meant to render a React components, start its name with ' + 'an uppercase letter.', type);
       }
     }
   }
@@ -32466,7 +32466,7 @@ function setInitialProperties$1(domElement, tag, rawProps, rootContainerElement)
   {
     validatePropertiesInDevelopment(tag, rawProps);
     if (isCustomComponentTag && !didWarnShadyDOM && domElement.shadyRoot) {
-      warning(false, '%s is using shady DOM. Using shady DOM with React can ' + 'cause things to break subtly.', getCurrentFiberOwnerName$1() || 'A component');
+      warning(false, '%s is using shady DOM. Using shady DOM with React can ' + 'cause things to break subtly.', getCurrentFiberOwnerName$1() || 'A components');
       didWarnShadyDOM = true;
     }
   }
@@ -32755,7 +32755,7 @@ function updateProperties$1(domElement, updatePayload, tag, lastRawProps, nextRa
   // changed.
   switch (tag) {
     case 'input':
-      // Update the wrapper around inputs *after* updating props. This has to
+      // Update the wrappers around inputs *after* updating props. This has to
       // happen after `updateDOMProperties`. Otherwise HTML5 input validations
       // raise warnings and prevent the new value from being assigned.
       updateWrapper(domElement, nextRawProps);
@@ -32777,7 +32777,7 @@ function diffHydratedProperties$1(domElement, tag, rawProps, parentNamespace, ro
     var isCustomComponentTag = isCustomComponent(tag, rawProps);
     validatePropertiesInDevelopment(tag, rawProps);
     if (isCustomComponentTag && !didWarnShadyDOM && domElement.shadyRoot) {
-      warning(false, '%s is using shady DOM. Using shady DOM with React can ' + 'cause things to break subtly.', getCurrentFiberOwnerName$1() || 'A component');
+      warning(false, '%s is using shady DOM. Using shady DOM with React can ' + 'cause things to break subtly.', getCurrentFiberOwnerName$1() || 'A components');
       didWarnShadyDOM = true;
     }
   }
@@ -33821,7 +33821,7 @@ var ReactDOM = {
       var owner = ReactCurrentOwner.current;
       if (owner !== null) {
         var warnedAboutRefsInRender = owner.stateNode._warnedAboutRefsInRender;
-        warning(warnedAboutRefsInRender, '%s is accessing findDOMNode inside its render(). ' + 'render() should be a pure function of props and state. It should ' + 'never access something that requires stale data from the previous ' + 'render, such as refs. Move this logic to componentDidMount and ' + 'componentDidUpdate instead.', getComponentName(owner) || 'A component');
+        warning(warnedAboutRefsInRender, '%s is accessing findDOMNode inside its render(). ' + 'render() should be a pure function of props and state. It should ' + 'never access something that requires stale data from the previous ' + 'render, such as refs. Move this logic to componentDidMount and ' + 'componentDidUpdate instead.', getComponentName(owner) || 'A components');
         owner.stateNode._warnedAboutRefsInRender = true;
       }
     }
@@ -33838,7 +33838,7 @@ var ReactDOM = {
     }
 
     if (typeof componentOrElement.render === 'function') {
-      invariant(false, 'Unable to find node on an unmounted component.');
+      invariant(false, 'Unable to find node on an unmounted components.');
     } else {
       invariant(false, 'Element appears to be neither ReactComponent nor DOMNode. Keys: %s', Object.keys(componentOrElement));
     }
@@ -33881,7 +33881,7 @@ var ReactDOM = {
         // Check if the container itself is a React root node.
         var isContainerReactRoot = container.nodeType === 1 && isValidContainer(container.parentNode) && !!container.parentNode._reactRootContainer;
 
-        warning(!hasNonRootReactChild, "unmountComponentAtNode(): The node you're attempting to unmount " + 'was rendered by React and is not a top-level container. %s', isContainerReactRoot ? 'You may have accidentally passed in a React root node instead ' + 'of its container.' : 'Instead, have the parent component update its state and ' + 'rerender in order to remove this component.');
+        warning(!hasNonRootReactChild, "unmountComponentAtNode(): The node you're attempting to unmount " + 'was rendered by React and is not a top-level container. %s', isContainerReactRoot ? 'You may have accidentally passed in a React root node instead ' + 'of its container.' : 'Instead, have the parent components update its state and ' + 'rerender in order to remove this components.');
       }
 
       return false;
@@ -34283,9 +34283,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
- * The `<Portal/>` component renders its children into a new "subtree" outside of current component hierarchy.
+ * The `<Portal/>` components renders its children into a new "subtree" outside of current components hierarchy.
  * You can think of it as a declarative `appendChild()`, or jQuery's `$.fn.appendTo()`.
- * The children of `<Portal/>` component will be appended to the `container` specified.
+ * The children of `<Portal/>` components will be appended to the `container` specified.
  */
 var Portal = function (_React$Component) {
   _inherits(Portal, _React$Component);
@@ -34326,7 +34326,7 @@ var Portal = function (_React$Component) {
           }
         });
       } else {
-        // Unrender if the component is null for transitions to null
+        // Unrender if the components is null for transitions to null
         _this._unrenderOverlay();
         _this._unmountOverlayTarget();
       }
@@ -34475,16 +34475,16 @@ var modalManager = new _ModalManager2.default();
 
 /**
  * Love them or hate them, `<Modal/>` provides a solid foundation for creating dialogs, lightboxes, or whatever else.
- * The Modal component renders its `children` node in front of a backdrop component.
+ * The Modal components renders its `children` node in front of a backdrop components.
  *
- * The Modal offers a few helpful features over using just a `<Portal/>` component and some styles:
+ * The Modal offers a few helpful features over using just a `<Portal/>` components and some styles:
  *
  * - Manages dialog stacking when one-at-a-time just isn't enough.
  * - Creates a backdrop, for disabling interaction below the modal.
  * - It properly manages focus; moving to the modal content, and keeping it there until the modal is closed.
  * - It disables scrolling of the page content while open.
  * - Adds the appropriate ARIA roles are automatically.
- * - Easily pluggable animations via a `<Transition/>` component.
+ * - Easily pluggable animations via a `<Transition/>` components.
  *
  * Note that, in the same way the backdrop element prevents users from clicking or interacting
  * with the page content underneath the Modal, Screen readers also need to be signaled to not to
@@ -34718,12 +34718,12 @@ Modal.propTypes = _extends({}, _Portal2.default.propTypes, {
   onHide: _propTypes2.default.func,
 
   /**
-   * Include a backdrop component.
+   * Include a backdrop components.
    */
   backdrop: _propTypes2.default.oneOfType([_propTypes2.default.bool, _propTypes2.default.oneOf(['static'])]),
 
   /**
-   * A function that returns a backdrop component. Useful for custom
+   * A function that returns a backdrop components. Useful for custom
    * backdrop rendering.
    *
    * ```js
@@ -34750,12 +34750,12 @@ Modal.propTypes = _extends({}, _Portal2.default.propTypes, {
   onBackdropClick: _propTypes2.default.func,
 
   /**
-   * A style object for the backdrop component.
+   * A style object for the backdrop components.
    */
   backdropStyle: _propTypes2.default.object,
 
   /**
-   * A css class or classes for the backdrop component.
+   * A css class or classes for the backdrop components.
    */
   backdropClassName: _propTypes2.default.string,
 
@@ -34771,13 +34771,13 @@ Modal.propTypes = _extends({}, _Portal2.default.propTypes, {
   keyboard: _propTypes2.default.bool,
 
   /**
-   * A `react-transition-group@2.0.0` `<Transition/>` component used
-   * to control animations for the dialog component.
+   * A `react-transition-group@2.0.0` `<Transition/>` components used
+   * to control animations for the dialog components.
    */
   transition: _elementType2.default,
 
   /**
-   * A `react-transition-group@2.0.0` `<Transition/>` component used
+   * A `react-transition-group@2.0.0` `<Transition/>` components used
    * to control animations for the backdrop components.
    */
   backdropTransition: _elementType2.default,
@@ -35238,7 +35238,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
- * Built on top of `<Position/>` and `<Portal/>`, the overlay component is great for custom tooltip overlays.
+ * Built on top of `<Position/>` and `<Portal/>`, the overlay components is great for custom tooltip overlays.
  */
 var Overlay = function (_React$Component) {
   _inherits(Overlay, _React$Component);
@@ -35382,7 +35382,7 @@ Overlay.propTypes = _extends({}, _Portal2.default.propTypes, _Position2.default.
 
 
   /**
-   * A `react-transition-group@2.0.0` `<Transition/>` component
+   * A `react-transition-group@2.0.0` `<Transition/>` components
    * used to animate the overlay as it changes visibility.
    */
   transition: _elementType2.default,
@@ -35468,9 +35468,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
- * The `<Portal/>` component renders its children into a new "subtree" outside of current component hierarchy.
+ * The `<Portal/>` components renders its children into a new "subtree" outside of current components hierarchy.
  * You can think of it as a declarative `appendChild()`, or jQuery's `$.fn.appendTo()`.
- * The children of `<Portal/>` component will be appended to the `container` specified.
+ * The children of `<Portal/>` components will be appended to the `container` specified.
  */
 var Portal = function (_React$Component) {
   _inherits(Portal, _React$Component);
@@ -35583,10 +35583,10 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
- * The Position component calculates the coordinates for its child, to position
- * it relative to a `target` component or node. Useful for creating callouts
- * and tooltips, the Position component injects a `style` props with `left` and
- * `top` values for positioning your component.
+ * The Position components calculates the coordinates for its child, to position
+ * it relative to a `target` components or node. Useful for creating callouts
+ * and tooltips, the Position components injects a `style` props with `left` and
+ * `top` values for positioning your components.
  *
  * It also injects "arrow" `left`, and `top` values for styling callout arrows
  * for giving your components a sense of directionality.
@@ -35707,15 +35707,15 @@ Position.propTypes = {
   target: _propTypes2.default.oneOfType([_componentOrElement2.default, _propTypes2.default.func]),
 
   /**
-   * "offsetParent" of the component
+   * "offsetParent" of the components
    */
   container: _propTypes2.default.oneOfType([_componentOrElement2.default, _propTypes2.default.func]),
   /**
-   * Minimum spacing in pixels between container border and component border
+   * Minimum spacing in pixels between container border and components border
    */
   containerPadding: _propTypes2.default.number,
   /**
-   * How to position the component relative to the target
+   * How to position the components relative to the target
    */
   placement: _propTypes2.default.oneOf(['top', 'right', 'bottom', 'left']),
   /**
@@ -35766,7 +35766,7 @@ var propTypes = {
 };
 
 /**
- * Internal helper component to allow attaching a non-conflicting ref to a
+ * Internal helper components to allow attaching a non-conflicting ref to a
  * child element that may not accept refs.
  */
 
@@ -35844,8 +35844,8 @@ function isModifiedEvent(event) {
 }
 
 /**
- * The `<RootCloseWrapper/>` component registers your callback on the document
- * when rendered. Powers the `<Overlay/>` component. This is used achieve modal
+ * The `<RootCloseWrapper/>` components registers your callback on the document
+ * when rendered. Powers the `<Overlay/>` components. This is used achieve modal
  * style behavior where your callback is triggered when the user tries to
  * interact with the rest of the document or hits the `esc` key.
  */
@@ -36441,15 +36441,15 @@ var ENTERED = exports.ENTERED = 'entered';
 var EXITING = exports.EXITING = 'exiting';
 
 /**
- * The Transition component lets you describe a transition from one component
+ * The Transition components lets you describe a transition from one components
  * state to another _over time_ with a simple declarative API. Most commonly
- * it's used to animate the mounting and unmounting of a component, but can also
+ * it's used to animate the mounting and unmounting of a components, but can also
  * be used to describe in-place transition states as well.
  *
- * By default the `Transition` component does not alter the behavior of the
- * component it renders, it only tracks "enter" and "exit" states for the components.
+ * By default the `Transition` components does not alter the behavior of the
+ * components it renders, it only tracks "enter" and "exit" states for the components.
  * It's up to you to give meaning and effect to those states. For example we can
- * add styles to a component when it enters or exits:
+ * add styles to a components when it enters or exits:
  *
  * ```jsx
  * import Transition from 'react-transition-group/Transition';
@@ -36480,9 +36480,9 @@ var EXITING = exports.EXITING = 'exiting';
  * );
  * ```
  *
- * As noted the `Transition` component doesn't _do_ anything by itself to its child component.
+ * As noted the `Transition` components doesn't _do_ anything by itself to its child components.
  * What it does do is track transition states over time so you can update the
- * component (such as by adding styles or classes) when it changes states.
+ * components (such as by adding styles or classes) when it changes states.
  *
  * There are 4 main states a Transition can be in:
  *  - `ENTERING`
@@ -36490,8 +36490,8 @@ var EXITING = exports.EXITING = 'exiting';
  *  - `EXITING`
  *  - `EXITED`
  *
- * Transition state is toggled via the `in` prop. When `true` the component begins the
- * "Enter" stage. During this stage, the component will shift from its current transition state,
+ * Transition state is toggled via the `in` prop. When `true` the components begins the
+ * "Enter" stage. During this stage, the components will shift from its current transition state,
  * to `'entering'` for the duration of the transition and then to the `'entered'` stage once
  * it's complete. Let's take the following example:
  *
@@ -36512,7 +36512,7 @@ var EXITING = exports.EXITING = 'exiting';
  * }
  * ```
  *
- * When the button is clicked the component will shift to the `'entering'` state and
+ * When the button is clicked the components will shift to the `'entering'` state and
  * stay there for 500ms (the value of `timeout`) when finally switches to `'entered'`.
  *
  * When `in` is `false` the same thing happens except the state moves from `'exiting'` to `'exited'`.
@@ -36797,7 +36797,7 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    * A `function` child can be used instead of a React element.
    * This function is called with the current transition status
    * ('entering', 'entered', 'exiting', 'exited', 'unmounted'), which can used
-   * to apply context specific props to a component.
+   * to apply context specific props to a components.
    *
    * ```jsx
    * <Transition timeout={150}>
@@ -36810,28 +36810,28 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
   children: PropTypes.oneOfType([PropTypes.func.isRequired, PropTypes.element.isRequired]).isRequired,
 
   /**
-   * Show the component; triggers the enter or exit states
+   * Show the components; triggers the enter or exit states
    */
   in: PropTypes.bool,
 
   /**
-   * By default the child component is mounted immediately along with
-   * the parent `Transition` component. If you want to "lazy mount" the component on the
-   * first `in={true}` you can set `mountOnEnter`. After the first enter transition the component will stay
+   * By default the child components is mounted immediately along with
+   * the parent `Transition` components. If you want to "lazy mount" the components on the
+   * first `in={true}` you can set `mountOnEnter`. After the first enter transition the components will stay
    * mounted, even on "exited", unless you also specify `unmountOnExit`.
    */
   mountOnEnter: PropTypes.bool,
 
   /**
-   * By default the child component stays mounted after it reaches the `'exited'` state.
-   * Set `unmountOnExit` if you'd prefer to unmount the component after it finishes exiting.
+   * By default the child components stays mounted after it reaches the `'exited'` state.
+   * Set `unmountOnExit` if you'd prefer to unmount the components after it finishes exiting.
    */
   unmountOnExit: PropTypes.bool,
 
   /**
-   * Normally a component is not transitioned if it is shown when the `<Transition>` component mounts.
+   * Normally a components is not transitioned if it is shown when the `<Transition>` components mounts.
    * If you want to transition on the first mount set `appear` to `true`, and the
-   * component will transition in as soon as the `<Transition>` mounts.
+   * components will transition in as soon as the `<Transition>` mounts.
    *
    * > Note: there are no specific "appear" states. `appear` only adds an additional `enter` transition.
    */
@@ -37145,7 +37145,7 @@ function warnNoop(publicInstance, callerName) {
     if (didWarnStateUpdateForUnmountedComponent[warningKey]) {
       return;
     }
-    warning(false, '%s(...): Can only update a mounted or mounting component. ' + 'This usually means you called %s() on an unmounted component. ' + 'This is a no-op.\n\nPlease check the code for the %s component.', callerName, callerName, componentName);
+    warning(false, '%s(...): Can only update a mounted or mounting components. ' + 'This usually means you called %s() on an unmounted components. ' + 'This is a no-op.\n\nPlease check the code for the %s components.', callerName, callerName, componentName);
     didWarnStateUpdateForUnmountedComponent[warningKey] = true;
   }
 }
@@ -37155,7 +37155,7 @@ function warnNoop(publicInstance, callerName) {
  */
 var ReactNoopUpdateQueue = {
   /**
-   * Checks whether or not this composite component is mounted.
+   * Checks whether or not this composite components is mounted.
    * @param {ReactClass} publicInstance The instance we want to test.
    * @return {boolean} True if mounted, false otherwise.
    * @protected
@@ -37170,13 +37170,13 @@ var ReactNoopUpdateQueue = {
    * certainty that we are **not** in a DOM transaction.
    *
    * You may want to call this when you know that some deeper aspect of the
-   * component's state has changed but `setState` was not called.
+   * components's state has changed but `setState` was not called.
    *
    * This will not invoke `shouldComponentUpdate`, but it will invoke
    * `componentWillUpdate` and `componentDidUpdate`.
    *
    * @param {ReactClass} publicInstance The instance that should rerender.
-   * @param {?function} callback Called after component is updated.
+   * @param {?function} callback Called after components is updated.
    * @param {?string} callerName name of the calling function in the public API.
    * @internal
    */
@@ -37193,7 +37193,7 @@ var ReactNoopUpdateQueue = {
    *
    * @param {ReactClass} publicInstance The instance that should rerender.
    * @param {object} completeState Next state.
-   * @param {?function} callback Called after component is updated.
+   * @param {?function} callback Called after components is updated.
    * @param {?string} callerName name of the calling function in the public API.
    * @internal
    */
@@ -37209,7 +37209,7 @@ var ReactNoopUpdateQueue = {
    *
    * @param {ReactClass} publicInstance The instance that should rerender.
    * @param {object} partialState Next partial state to be merged with state.
-   * @param {?function} callback Called after component is updated.
+   * @param {?function} callback Called after components is updated.
    * @param {?string} Name of the calling function in the public API.
    * @internal
    */
@@ -37219,7 +37219,7 @@ var ReactNoopUpdateQueue = {
 };
 
 /**
- * Base class helpers for the updating state of a component.
+ * Base class helpers for the updating state of a components.
  */
 function Component(props, context, updater) {
   this.props = props;
@@ -37246,7 +37246,7 @@ Component.prototype.isReactComponent = {};
  *
  * When a function is provided to setState, it will be called at some point in
  * the future (not synchronously). It will be called with the up to date
- * component arguments (state, props, context). These values can be different
+ * components arguments (state, props, context). These values can be different
  * from this.* because your function may be called after receiveProps but before
  * shouldComponentUpdate, and this new state, props, and context will not yet be
  * assigned to this.
@@ -37267,7 +37267,7 @@ Component.prototype.setState = function (partialState, callback) {
  * certainty that we are **not** in a DOM transaction.
  *
  * You may want to call this when you know that some deeper aspect of the
- * component's state has changed but `setState` was not called.
+ * components's state has changed but `setState` was not called.
  *
  * This will not invoke `shouldComponentUpdate`, but it will invoke
  * `componentWillUpdate` and `componentDidUpdate`.
@@ -37306,7 +37306,7 @@ Component.prototype.forceUpdate = function (callback) {
 }
 
 /**
- * Base class helpers for the updating state of a component.
+ * Base class helpers for the updating state of a components.
  */
 function PureComponent(props, context, updater) {
   // Duplicated from Component.
@@ -37348,7 +37348,7 @@ asyncComponentPrototype.render = function () {
 /**
  * Keeps track of the current owner.
  *
- * The current owner is the component who should own any components that are
+ * The current owner is the components who should own any components that are
  * currently being constructed.
  */
 var ReactCurrentOwner = {
@@ -37399,7 +37399,7 @@ function defineKeyPropWarningGetter(props, displayName) {
   var warnAboutAccessingKey = function () {
     if (!specialPropKeyWarningShown) {
       specialPropKeyWarningShown = true;
-      warning(false, '%s: `key` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child component, you should pass it as a different ' + 'prop. (https://fb.me/react-special-props)', displayName);
+      warning(false, '%s: `key` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child components, you should pass it as a different ' + 'prop. (https://fb.me/react-special-props)', displayName);
     }
   };
   warnAboutAccessingKey.isReactWarning = true;
@@ -37413,7 +37413,7 @@ function defineRefPropWarningGetter(props, displayName) {
   var warnAboutAccessingRef = function () {
     if (!specialPropRefWarningShown) {
       specialPropRefWarningShown = true;
-      warning(false, '%s: `ref` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child component, you should pass it as a different ' + 'prop. (https://fb.me/react-special-props)', displayName);
+      warning(false, '%s: `ref` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child components, you should pass it as a different ' + 'prop. (https://fb.me/react-special-props)', displayName);
     }
   };
   warnAboutAccessingRef.isReactWarning = true;
@@ -37454,7 +37454,7 @@ var ReactElement = function (type, key, ref, self, source, owner, props) {
     ref: ref,
     props: props,
 
-    // Record the component responsible for creating this element.
+    // Record the components responsible for creating this element.
     _owner: owner
   };
 
@@ -37657,7 +37657,7 @@ function cloneElement(element, config, children) {
  * Verifies the object is a ReactElement.
  * See https://reactjs.org/docs/react-api.html#isvalidelement
  * @param {?object} object
- * @return {boolean} True if `object` is a valid component.
+ * @return {boolean} True if `object` is a valid components.
  * @final
  */
 function isValidElement(object) {
@@ -37859,9 +37859,9 @@ function traverseAllChildren(children, callback, traverseContext) {
 }
 
 /**
- * Generate a key string that identifies a component within a set.
+ * Generate a key string that identifies a components within a set.
  *
- * @param {*} component A component that could contain a manual key.
+ * @param {*} component A components that could contain a manual key.
  * @param {number} index Index that is used if a manual key is not provided.
  * @return {string}
  */
@@ -37989,7 +37989,7 @@ function toArray(children) {
  * See https://reactjs.org/docs/react-api.html#react.children.only
  *
  * The current implementation of this function assumes that a single child gets
- * passed without a wrapper, but the purpose of this helper function is to
+ * passed without a wrappers, but the purpose of this helper function is to
  * abstract away the particular structure of children.
  *
  * @param {?object} children Child collection structure.
@@ -38018,7 +38018,7 @@ function getComponentName(fiber) {
 }
 
 /**
- * ReactElementValidator provides a wrapper around a element factory
+ * ReactElementValidator provides a wrappers around a element factory
  * which validates the props passed to the element. This is intended to be
  * used only in DEV and could be replaced by a static type checker for languages
  * that support it.
@@ -38124,7 +38124,7 @@ function validateExplicitKey(element, parentType) {
   // assigning it a key.
   var childOwner = '';
   if (element && element._owner && element._owner !== ReactCurrentOwner.current) {
-    // Give the component that originally created this child.
+    // Give the components that originally created this child.
     childOwner = ' It was passed a child from ' + getComponentName(element._owner) + '.';
   }
 
@@ -38253,7 +38253,7 @@ function createElementWithValidation(type, props, children) {
   if (!validType) {
     var info = '';
     if (type === undefined || typeof type === 'object' && type !== null && Object.keys(type).length === 0) {
-      info += ' You likely forgot to export your component from the file ' + "it's defined in, or you might have mixed up default and named imports.";
+      info += ' You likely forgot to export your components from the file ' + "it's defined in, or you might have mixed up default and named imports.";
     }
 
     var sourceInfo = getSourceInfoErrorAddendum(props);
@@ -38483,7 +38483,7 @@ function createUncontrollable(mixin, set) {
 
     propTypes = utils.uncontrolledPropTypes(controlledValues, basePropTypes, displayName);
 
-    (0, _invariant2.default)(isCompositeComponent || !methods.length, '[uncontrollable] stateless function components cannot pass through methods ' + 'because they have no associated instances. Check component: ' + displayName + ', ' + 'attempting to pass through methods: ' + methods.join(', '));
+    (0, _invariant2.default)(isCompositeComponent || !methods.length, '[uncontrollable] stateless function components cannot pass through methods ' + 'because they have no associated instances. Check components: ' + displayName + ', ' + 'attempting to pass through methods: ' + methods.join(', '));
 
     methods = utils.transform(methods, function (obj, method) {
       obj[method] = function () {
@@ -38879,7 +38879,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var React = __webpack_require__("./node_modules/react/index.js");
 var ReactDOM = __webpack_require__("./node_modules/react-dom/index.js");
-var Project = __webpack_require__("./src/main/resources/static/component/project.js");
+var Project = __webpack_require__("./src/main/resources/static/components/project.js");
 
 var Bootstrap = __webpack_require__("./node_modules/react-bootstrap/es/index.js");
 var Button = __webpack_require__("./node_modules/react-bootstrap/es/index.js").Button;

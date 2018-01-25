@@ -3,7 +3,8 @@
  */
 const React = require('react');
 const ReactDOM = require('react-dom');
-
+const Router=require('react-router');
+const Link=Router.Link;
 
 class Header extends React.Component{
 
@@ -15,13 +16,12 @@ class Header extends React.Component{
         return(
             <div>
                 <ul>
-                    <li>header1</li>
-                    <li>header1</li>
-                    <li>header1</li>
-                    <li>header1</li>
+                    <li><Link to="1">header1</Link></li>
+                    <li><Link to="2">header2</Link></li>
+                    <li><Link to="3">header3</Link></li>
+                    <li><Link to="4">header4</Link></li>
                 </ul>
             </div>
-
         );
     }
 }

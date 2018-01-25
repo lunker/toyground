@@ -13,12 +13,12 @@ class Body extends React.Component{
         this.state={name:'hello state'}
     }
 
+    /*
     registerProject = (e) => {
         e.preventDefault();
         console.log('Click RegisterProject Button');
-
     };
-
+    */
 
     render(){
 
